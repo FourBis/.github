@@ -1,14 +1,16 @@
 name: Shared CI
-on: [push, pull_request]
-
+on:
+  workflow_call:
+    inputs:
+      dotnet_version:
+        type: string
+        default: '8.0.x'
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Setup .NET
-        uses: actions/setup-dotnet@v3
+      - uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: '8.0.x'
-      - name: Build solution
-        run: dotnet build --configuration Release
+          dotnet-version: ${{ inputs.dotnet_version }}
+      - run: dotnet build --configuration Release
