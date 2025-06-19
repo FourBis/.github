@@ -1,12 +1,20 @@
-## Hi there 👋
+# Bienvenido a 4 Bis 🚀
 
-<!--
+Somos **4 Bis SPA**, especialistas en soluciones ERP personalizadas y DevOps en la nube.
 
-**Here are some ideas to get you started:**
+## ¿Qué encontrarás aquí?
+- Repositorios públicos de librerías y proyectos de muestra.
+- Arquitecturas y patrones recomendados.
+- Plantillas y `Workflows` de GitHub Actions compartidos.
+- Recursos y cursos sobre Blazor, .NET, React y más.
 
-🙋‍♀️ A short introduction - what is your organization all about?
-🌈 Contribution guidelines - how can the community get involved?
-👩‍💻 Useful resources - where can the community find your docs? Is there anything else the community should know?
-🍿 Fun facts - what does your team eat for breakfast?
-🧙 Remember, you can do mighty things with the power of [Markdown](https://docs.github.com/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
--->
+## Nuestro Equipo
+- Jeremías Badilla (Founder & Developer)
+- Patricio Cortés (Administración )
+- Emanuel Toro (Developer)
+- Jaime Saez (Developer)
+- Javier Davis (Developer)
+- Joaquín Escobar (Developer)
+
+## Contribuye
+a continuación encontrarás cómo colaborar en nuestros proyectos.
