@@ -1,14 +1,32 @@
-name: Notify Discord
+name: Discord Notify
 on:
-  issues:
-    types: [opened]
-
+  workflow_call:
+    inputs:
+      webhook_url:
+        description: 'Discord Webhook URL'
+        required: true
+        type: string
+      issue_number:
+        description: 'Número de la issue'
+        required: true
+        type: number
+      issue_title:
+        description: 'Título de la issue'
+        required: true
+        type: string
+      repository:
+        description: 'Nombre completo del repositorio'
+        required: true
+        type: string
 jobs:
-  discord:
+  notify:
     runs-on: ubuntu-latest
     steps:
-      - name: Send webhook
+      - name: Enviar mensaje a Discord
         uses: Ilshidur/action-discord@v2
         with:
-          webhook: ${{ secrets.DISCORD_WEBHOOK_URL }}
-          message: "Nueva issue abierta: ${{ github.event.issue.title }}"
+          webhook: ${{ inputs.webhook_url }}
+          message: |
+            Nueva issue en `${{ inputs.repository }}`:
+            #${{ inputs.issue_number }} – ${{ inputs.issue_title }}
+            Link: https://github.com/${{ inputs.repository }}/issues/${{ inputs.issue_number }}
