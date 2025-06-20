@@ -1,11 +1,12 @@
 name: Discord Notify
 on:
   workflow_call:
-    inputs:
+    # Definimos webhook_url como un secret
+    secrets:
       webhook_url:
         description: 'Discord Webhook URL'
         required: true
-        type: string
+    inputs:
       issue_number:
         description: 'Número de la issue'
         required: true
@@ -25,7 +26,7 @@ jobs:
       - name: Enviar mensaje a Discord
         uses: Ilshidur/action-discord@v2
         with:
-          webhook: ${{ inputs.webhook_url }}
+          webhook: ${{ secrets.webhook_url }}
           message: |
             Nueva issue en `${{ inputs.repository }}`:
             #${{ inputs.issue_number }} – ${{ inputs.issue_title }}
