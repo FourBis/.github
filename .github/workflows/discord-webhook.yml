@@ -19,15 +19,19 @@ on:
         description: 'Nombre completo del repositorio'
         required: true
         type: string
+
 jobs:
   notify:
     runs-on: ubuntu-latest
     steps:
       - name: Enviar mensaje a Discord
         uses: Ilshidur/action-discord@0.3.2
+        env:
+          # La acción lee la URL desde esta var de entorno
+          DISCORD_WEBHOOK: ${{ secrets.webhook_url }}
         with:
-          webhook: ${{ secrets.webhook_url }}
-          message: |
+          # 'args' es el único input que acepta esta acción
+          args: |
             Nueva issue en `${{ inputs.repository }}`:
             #${{ inputs.issue_number }} – ${{ inputs.issue_title }}
             Link: https://github.com/${{ inputs.repository }}/issues/${{ inputs.issue_number }}
